@@ -3,9 +3,16 @@ import { TaskModel } from "../models";
 
 type Props = {
   onChange: (checked: boolean) => void;
+  onDelete: () => void;
 } & TaskModel;
 
-const TaskListItem: React.FC<Props> = ({ onChange, done, id, label }) => {
+const TaskListItem: React.FC<Props> = ({
+  onChange,
+  onDelete,
+  done,
+  id,
+  label
+}) => {
   return (
     <li className="list-group-item">
       <div className="custom-control custom-checkbox">
@@ -16,9 +23,14 @@ const TaskListItem: React.FC<Props> = ({ onChange, done, id, label }) => {
           onChange={e => onChange(e.target.checked)}
           type="checkbox"
         />
+
         <label className="custom-control-label" htmlFor={id}>
           {done ? <del>{label}</del> : label}
         </label>
+
+        <button className="close" onClick={onDelete} type="button">
+          <span>&times;</span>
+        </button>
       </div>
     </li>
   );
