@@ -2,7 +2,9 @@
   "files.exclude": {
     "node_modules": true,
     "yarn.lock": true,
-    "build": true
+    "build": true,
+    ".firebase": true,
+    "firebase-debug.log": true
   },
   "cSpell.words": ["devday"]
 }
