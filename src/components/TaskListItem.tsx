@@ -14,7 +14,7 @@ const TaskListItem: React.FC<Props> = ({ onChange, done, id, label }) => {
         onChange={e => onChange(e.target.checked)}
         type="checkbox"
       />
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>{done ? <del>{label}</del> : label}</label>
     </li>
   );
 };
