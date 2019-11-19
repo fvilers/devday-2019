@@ -1,7 +1,8 @@
 import React from "react";
+import TaskList from "../components/TaskList";
 
 const Tasks: React.FC = () => {
-  return <div>TODO : display list of tasks</div>;
+  return <TaskList />;
 };
 
 export default Tasks;
