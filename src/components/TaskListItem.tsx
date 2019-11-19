@@ -1,10 +1,19 @@
 import React from "react";
 import { TaskModel } from "../models";
 
-const TaskListItem: React.FC<TaskModel> = ({ done, id, label }) => {
+type Props = {
+  onChange: (checked: boolean) => void;
+} & TaskModel;
+
+const TaskListItem: React.FC<Props> = ({ onChange, done, id, label }) => {
   return (
     <li>
-      <input defaultChecked={done} id={id} type="checkbox" />
+      <input
+        checked={done}
+        id={id}
+        onChange={e => onChange(e.target.checked)}
+        type="checkbox"
+      />
       <label htmlFor={id}>{label}</label>
     </li>
   );
