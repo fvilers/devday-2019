@@ -13,21 +13,24 @@ const NewTaskForm: React.FC<Props> = ({ onSubmit }) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="label">New task</label>
-        <input
-          id="label"
-          onChange={e => setLabel(e.target.value)}
-          required
-          type="text"
-          value={label}
-        />
-      </div>
+    <form autoComplete="off" className="form-inline" onSubmit={handleSubmit}>
+      <label className="sr-only" htmlFor="label">
+        New task
+      </label>
 
-      <div>
-        <button type="submit">Add</button>
-      </div>
+      <input
+        className="form-control mb-2 mr-sm-2 flex-grow-1"
+        id="label"
+        onChange={e => setLabel(e.target.value)}
+        placeholder="Type in a description for a new task"
+        required
+        type="text"
+        value={label}
+      />
+
+      <button className="btn btn-primary mb-2" type="submit">
+        Add task
+      </button>
     </form>
   );
 };

@@ -12,7 +12,7 @@ const TaskList: React.FC<Props> = ({ tasks }) => {
   const sorted = useMemo(() => sortBy(tasks, task => task.done), [tasks]);
 
   return (
-    <ul>
+    <ul className="list-group list-group-flush">
       {sorted.map(task => (
         <Task component={TaskListItem} key={task.id} {...task} />
       ))}

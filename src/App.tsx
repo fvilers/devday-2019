@@ -5,10 +5,18 @@ import NewTask from "./containers/NewTask";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Tasks</h1>
-      <Tasks component={TaskList} />
-      <NewTask />
+    <div className="container">
+      <header className="mb-4">
+        <h1>Tasks</h1>
+      </header>
+
+      <main className="mb-4">
+        <Tasks component={TaskList} />
+      </main>
+
+      <footer>
+        <NewTask />
+      </footer>
     </div>
   );
 };

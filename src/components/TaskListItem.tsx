@@ -7,14 +7,19 @@ type Props = {
 
 const TaskListItem: React.FC<Props> = ({ onChange, done, id, label }) => {
   return (
-    <li>
-      <input
-        checked={done}
-        id={id}
-        onChange={e => onChange(e.target.checked)}
-        type="checkbox"
-      />
-      <label htmlFor={id}>{done ? <del>{label}</del> : label}</label>
+    <li className="list-group-item">
+      <div className="custom-control custom-checkbox">
+        <input
+          checked={done}
+          className="custom-control-input"
+          id={id}
+          onChange={e => onChange(e.target.checked)}
+          type="checkbox"
+        />
+        <label className="custom-control-label" htmlFor={id}>
+          {done ? <del>{label}</del> : label}
+        </label>
+      </div>
     </li>
   );
 };
