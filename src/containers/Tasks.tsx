@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, FunctionComponent } from "react";
 import { TaskModel } from "../models";
 import firebase from "../firebase";
-import TaskList from "../components/TaskList";
 
 type State = {
   tasks: Array<TaskModel>;
@@ -40,7 +39,11 @@ const INITIAL_STATE: State = {
   tasks: new Array<TaskModel>()
 };
 
-const Tasks: React.FC = () => {
+type Props = {
+  component: FunctionComponent<{ tasks: Array<TaskModel> }>;
+};
+
+const Tasks: React.FC<Props> = ({ component }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   useEffect(
@@ -58,7 +61,7 @@ const Tasks: React.FC = () => {
     []
   );
 
-  return <TaskList tasks={state.tasks} />;
+  return React.createElement(component, { tasks: state.tasks });
 };
 
 export default Tasks;
