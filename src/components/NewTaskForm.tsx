@@ -28,7 +28,7 @@ const NewTaskForm: React.FC<Props> = ({ onSubmit }) => {
         value={label}
       />
 
-      <button className="btn btn-primary mb-2" type="submit">
+      <button className="btn btn-primary mb-2" title="Add task" type="submit">
         Add task
       </button>
     </form>

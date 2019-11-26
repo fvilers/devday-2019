@@ -28,7 +28,12 @@ const TaskListItem: React.FC<Props> = ({
           {done ? <del>{label}</del> : label}
         </label>
 
-        <button className="close" onClick={onDelete} type="button">
+        <button
+          className="close"
+          onClick={onDelete}
+          title="Delete this task"
+          type="button"
+        >
           <span>&times;</span>
         </button>
       </div>
